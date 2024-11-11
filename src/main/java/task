@@ -1,0 +1,202 @@
+package Recurcia;
+import java.util.*;
+public class recurcia {
+	
+	public static boolean question(int num)
+	{
+		if(num < 10)
+		{
+			return true;
+		}
+		if(num%10 < (num/10)%10)
+		{
+			return false;
+		}
+		return question(num/10);
+	}
+	
+	public static int question2(int [] arr, int num, int id)
+	{
+		if (id == arr.length) 
+		{
+	        return 0;
+	    }
+		if(arr[id] == num)
+		{
+			return question2(arr, num, id+1)+1;
+		}
+		return question2(arr, num, id+1);
+	}
+	
+	
+	public static int q21(String word, int id)
+	{
+		if( id == word.length())
+		{
+			return 0;
+		}
+		if(Character.isLowerCase(word.charAt(id)))
+		{
+			return q21(word, id+1)+1;
+		}
+		return q21(word, id+1);
+
+	}
+
+
+	public static String q22(String word, int id, String newWord)
+	{
+		if( id >= word.length())
+		{
+			return newWord;
+		}
+		if(id < word.length())
+		{
+			if((id+1)%3 == 0)
+			{
+				newWord = newWord + word.charAt(id) + word.charAt(id+1) + word.charAt(id+2) + "*";
+				return q22(word, id+3, newWord);
+			}
+		}
+		return newWord;
+
+	}
+	
+	public static String q23(String word)
+	{
+		if(word.isEmpty())
+		{
+			return word;
+		}
+		
+		return q23(word.substring(1)) + word.charAt(0);
+		
+	}
+	
+	
+	
+	
+	public static void q24(char a, char b)
+	{
+		if (a==b)
+		{
+			System.out.println(b);
+		}
+		if(a != b)
+		{
+			System.out.println(a);
+			q24((char)(a+1),b);
+		}
+	}
+	
+	public static void q25(int num, int i)
+	{
+		if (i==1)
+		{
+			System.out.println(1);
+
+		}
+		q25(num,i-1);
+	}
+	
+	public static void q26(int num)
+	{
+		if(num == 0)
+		{
+			return;
+		}
+		if((num%10)%2==0)
+		{
+			System.out.println(num%10);
+		}
+		q26(num/10);
+
+	}
+	
+	
+	public static void q28(int a1, int d, int n, int id)
+	{
+		if(id==n)
+		{
+			System.out.println(a1);
+		}
+		System.out.println(a1);
+		a1= a1+d;
+		q28(a1,d,n,id+1);
+	}
+	
+	public static void q29(int n, int id, int idN)
+	{
+		if(id == -1)
+		{
+			return;
+		}
+		if(id == idN)
+		{
+			System.out.println(n);
+		}
+		System.out.println(n-id);
+		q29(n-id,id-1,idN);
+
+		
+	}
+	
+	public static void q30(int n, int id, int n2)
+	{
+		if(n2==id)
+		{
+			System.out.println(n);
+		}
+		if(id%2==1)
+		{
+			n= n+1;
+		}
+		else
+		{
+			n=n+2;
+		}
+		System.out.println(n);
+		q30(n,id+1,n2);
+	}
+	
+	
+	public static void q31(int [] arr, int id)
+	{
+		if(id == arr.length)
+		{
+			return;
+		}
+		if(id%2 == 0)
+		{
+			System.out.println(arr[id]);
+		}
+		q31(arr, id+1);
+	}
+	
+	
+
+	public static void q32(int [] arr, int id)
+	{
+		if(id == arr.length-1)
+		{
+			return;
+		}
+		if(arr[id] < arr[id+1])
+		{
+			System.out.println(arr[id]);
+		}
+		q31(arr, id+1);
+	}
+	
+	
+	
+	
+
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
